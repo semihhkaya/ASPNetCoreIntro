@@ -45,7 +45,7 @@ namespace ASPNetCoreIntro.Controllers
         [HttpPost]
         public string SaveCustomer(Customer customer)
         {
-            return "Kaydedildi";
+            return "Kaydedildi ";
         }
     }
 }
