@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 
 namespace ASPNetCoreIntro.Controllers
 {
+    [Route(template:"customer")]
     public class CustomerController : Controller
     {
-        public IActionResult Index2() //Product Controllerinin Index2 Aksiyonunun Viewi
+        [Route(template:"index2")]
+        [Route(template:"")]
+        [Route(template:"~/anasayfa")]
+        public IActionResult Index2() //Customer Controllerinin Index2 Aksiyonunun Viewi
         {
             List<Customer> customers = new List<Customer>
             {
@@ -21,6 +25,7 @@ namespace ASPNetCoreIntro.Controllers
             };
 
             List<string> shops = new List<string> { "Ankara", "İstanbul", "Antalya" };
+            
             var model = new CustomerListViewModel
             {
                 Customers = customers,
@@ -30,6 +35,7 @@ namespace ASPNetCoreIntro.Controllers
         }
 
         [HttpGet]
+        [Route(template:"save")]
         public IActionResult SaveCustomer()
         {
             return View(new SaveCustomerViewModel { 
@@ -43,6 +49,7 @@ namespace ASPNetCoreIntro.Controllers
         }
 
         [HttpPost]
+        [Route(template:"save")]
         public string SaveCustomer(Customer customer)
         {
             return "Kaydedildi ";

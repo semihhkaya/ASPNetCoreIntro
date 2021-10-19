@@ -46,11 +46,16 @@ namespace ASPNetCoreIntro
 
             app.UseAuthorization();
 
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Product}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "admin",
+                    pattern: "admin/{controller=Product}/{action=Index}/{id?}");
             });
         }
     }
