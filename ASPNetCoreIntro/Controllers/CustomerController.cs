@@ -1,5 +1,6 @@
 ﻿using ASPNetCoreIntro.Entities;
 using ASPNetCoreIntro.Models;
+using ASPNetCoreIntro.Services.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -12,6 +13,13 @@ namespace ASPNetCoreIntro.Controllers
     [Route(template:"customer")]
     public class CustomerController : Controller
     {
+        private ILogger _logger;
+
+        public CustomerController(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         [Route(template:"index2")]
         [Route(template:"")]
         [Route(template:"~/anasayfa")]
